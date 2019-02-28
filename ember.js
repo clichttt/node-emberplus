@@ -340,6 +340,8 @@ TreeNode.prototype.getElementByIdentifier = function(identifier) {
 TreeNode.prototype.getElement = function(id) {
     if(Number.isInteger(id)) {
         return this.getElementByNumber(id);
+    } else if (/^\d+(\.\d+)*$/.test(id)) {
+        return this.getElementByPath(id);
     } else {
         return this.getElementByIdentifier(id);
     }
